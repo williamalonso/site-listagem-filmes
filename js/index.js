@@ -92,4 +92,8 @@ function buscarFilmes(filmePesquisa) {
     .then(function () {
       // always executed
     });
+<<<<<<< HEAD
 }*/
+=======
+}*/
+>>>>>>> 840b43484991f6f432aaf413f7e54dc768981daa
