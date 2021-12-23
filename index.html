@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Buscar Filmes</title>
+    <title>Listar Filmes</title>
     <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Bootstrap CDN -->
     <link
       rel="stylesheet"
@@ -10,35 +11,64 @@
       integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
       crossorigin="anonymous"
     />
-    <!-- Css file-->
+    <!-- CSS file-->
     <link rel="stylesheet" type="text/css" href="css/styles.css" />
   </head>
 
   <body>
-    <div class="container">
-      <div class="header clearfix"></div>
-      <h3>Buscar Filmes</h3>
+    <!-- Search field -->
+    <header>
+      <form  id="form">
+          <input type="text" placeholder="Pesquisar" id="search" class="search">
+      </form>
+    </header>
 
-      <div class="jumbotron">
-        <div class="col-lg-12">
-          <form class="input-group" id="formulario">
-            <input
-              type="text"
-              name=""
-              class="form-control"
-              id="pesquisar"
-              placeholder="Digite o nome do filme"
-            />
-            <span class="input-group-btn">
-              <button class="btn btn-primary" type="submit">Pesquisar</button>
-            </span>
-          </form>
-        </div>
-      </div>
+    <div id="tags"></div>
+
+    <div id="myNav" class="overlay">
+        <!-- Button to close the overlay navigation -->
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+      
+        <!-- Overlay content -->
+        <div class="overlay-content" id="overlay-content"></div>
+        
+        <a href="javascript:void(0)" class="arrow left-arrow" id="left-arrow">&#8656;</a>
+        
+        <a href="javascript:void(0)" class="arrow right-arrow" id="right-arrow" >&#8658;</a>
     </div>
 
-    <div class="container">
-      <div class="row" id="filmes"></div>
+    <!-- The movies in the card will be loaded here -->
+    <main id="main">
+
+      <div class="movie">
+        <img src="https://media.istockphoto.com/photos/brightly-colored-chairs-next-to-each-other-in-empty-auditorium-picture-id1147602563" alt="Image">
+        <div class="movie-info">
+          <h3>Título do Filme</h3>
+          <span class="green">9.8</span>
+        </div>
+        <div class="overview">
+          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Vel dolores voluptas corrupti inventore saepe! Neque et consequatur exercitationem qui omnis.
+        </div>
+      </div>
+
+      <div class="movie">
+        <img src="https://media.istockphoto.com/photos/brightly-colored-chairs-next-to-each-other-in-empty-auditorium-picture-id1147602563" alt="Image">
+        <div class="movie-info">
+          <h3>Título do Filme</h3>
+          <span class="green">9.8</span>
+        </div>
+        <div class="overview">
+          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Vel dolores voluptas corrupti inventore saepe! Neque et consequatur exercitationem qui omnis.
+        </div>
+      </div>
+
+    </main>
+
+    <!--Pagination -->
+    <div class="pagination">
+        <div class="page" id="prev">Anterior</div>
+        <div class="current" id="current">1</div>
+        <div class="page" id="next">Próximo</div>
     </div>
 
     <!-- Bootstrap core JavaScript -->
@@ -61,6 +91,7 @@
     <!-- Axios -->
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
     <!-- JS file -->
     <script src="js/index.js"></script>
   </body>
