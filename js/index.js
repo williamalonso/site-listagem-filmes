@@ -1,5 +1,16 @@
+// TMDB
+const API_KEY = 'api_key=5a54272fe8480c752ded4311b7a123fd&language=pt-BR';
+const BASE_URL = 'https://api.themoviedb.org/3';
+const API_URL = BASE_URL + '/discover/movie?sort_by=popularity.desc' + API_KEY;
+
+function getMovies(url) {
+  fetch(url).then(res => res.json).then(data => {
+    console.log(data);
+  })
+}
+
 // quando der o submit vamos chamar a função "pesquisarFilme"
-document
+/*document
   .getElementById("formulario")
   .addEventListener("submit", pesquisarFilme);
 
@@ -24,4 +35,4 @@ function buscarFilmes(filmePesquisa) {
     .then(function () {
       // always executed
     });
-}
+}*/
