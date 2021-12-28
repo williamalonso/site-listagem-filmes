@@ -1,98 +1,190 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Listar Filmes</title>
+    <title>Movie App</title>
+    <link rel="icon" type="imagem/png" href="/img/movieicon.png" />
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
     <!-- Bootstrap CDN -->
     <link
       rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
       crossorigin="anonymous"
     />
+
+    <!-- Plugin "Font Awesome" CSS -->
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+
     <!-- CSS file-->
-    <link rel="stylesheet" type="text/css" href="css/styles.css" />
+    <link rel="stylesheet" type="text/css" href="css/index.css" />
   </head>
 
   <body>
-    <!-- Search field -->
-    <header>
-      <form  id="form">
-          <input type="text" placeholder="Pesquisar" id="search" class="search">
-      </form>
-    </header>
+    <!-- Navbar -->
+    <nav
+      class="navbar navbar-expand-lg navbar-light cor-fundo-navbar cor-fonte-navbar"
+    >
+      <div class="mx-3">
+        <img src="img/movieicon.png" class="imagem-navbar" alt="" />
+      </div>
+      <span class="navbar-brand">The Movie App</span>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
 
-    <div id="tags"></div>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link my-2 text-center" id="botao-inicio" href="#">Início <span class="sr-only">(current)</span></a
+            >
+          </li>
+          <li class="nav-item">
+            <a class="nav-link my-2 text-center" href="#">Meus Votos</a>
+          </li>
+        </ul>
+        <form class="form-inline my-2 my-lg-0">
+          <input
+            class="form-control mr-sm-2"
+            type="search"
+            placeholder="Digite seu filme"
+            aria-label="Search"
+            id="form"
+          />
+          <button class="btn my-2 my-sm-0 cor-botao" type="submit" id="botao">
+            Pesquisar
+          </button>
+        </form>
+      </div>
+    </nav>
 
-    <div id="myNav" class="overlay">
-        <!-- Button to close the overlay navigation -->
-        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-      
-        <!-- Overlay content -->
-        <div class="overlay-content" id="overlay-content"></div>
-        
-        <a href="javascript:void(0)" class="arrow left-arrow" id="left-arrow">&#8656;</a>
-        
-        <a href="javascript:void(0)" class="arrow right-arrow" id="right-arrow" >&#8658;</a>
-    </div>
-
-    <!-- The movies in the card will be loaded here -->
-    <main id="main">
-
-      <div class="movie">
-        <img src="https://media.istockphoto.com/photos/brightly-colored-chairs-next-to-each-other-in-empty-auditorium-picture-id1147602563" alt="Image">
-        <div class="movie-info">
-          <h3>Título do Filme</h3>
-          <span class="green">9.8</span>
+    <!-- Cards entram aqui  -->
+    <div
+      id="main"
+      class="container-fluid d-flex justify-content-center mt-5 mb-1"
+    >
+      <!--
+      <div class="row">
+        <div class="col-md-3">
+          <div class="card text-center card-largura mt-0 mb-5 cor-fundo-card">
+            <img
+              src="https://media.istockphoto.com/photos/brightly-colored-chairs-next-to-each-other-in-empty-auditorium-picture-id1147602563"
+              class="card-img-top altura-imagem"
+              alt="Imagem do card"
+            />
+            <div class="card-body">
+              <h5 class="card-title">Título do Filme</h5>
+              <p class="card-text">
+                With supporting text below as a natural lead-in to additional
+                content
+              </p>
+              <p class="">
+                <small class="text-muted">Nota do Filme</small>
+              </p>
+              <a href="#" class="btn cor-botao">Avaliar</a>
+            </div>
+          </div>
         </div>
-        <div class="overview">
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Vel dolores voluptas corrupti inventore saepe! Neque et consequatur exercitationem qui omnis.
+        <div class="col-md-3">
+          <div class="card text-center card-largura mt-0 mb-5 cor-fundo-card">
+            <img
+              src="https://media.istockphoto.com/photos/brightly-colored-chairs-next-to-each-other-in-empty-auditorium-picture-id1147602563"
+              class="card-img-top altura-imagem"
+              alt="Imagem do card"
+            />
+            <div class="card-body">
+              <h5 class="card-title">Título do Filme</h5>
+              <p class="card-text">
+                With supporting text below as a natural lead-in to additional
+                content With supporting text below as a natural lead-in to
+                additional content With supporting text below as a natural
+                lead-in to additional content
+              </p>
+              <p class="">
+                <small class="text-muted">Nota do Filme</small>
+              </p>
+              <a href="#" class="btn cor-botao">Avaliar</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="card text-center card-largura mt-0 mb-5 cor-fundo-card">
+            <img
+              src="https://media.istockphoto.com/photos/brightly-colored-chairs-next-to-each-other-in-empty-auditorium-picture-id1147602563"
+              class="card-img-top altura-imagem"
+              alt="Imagem do card"
+            />
+            <div class="card-body">
+              <h5 class="card-title">Título do Filme</h5>
+              <p class="card-text">
+                With supporting text below as a natural lead-in to additional
+                content
+              </p>
+              <p class="">
+                <small class="text-muted">Nota do Filme</small>
+              </p>
+              <a href="#" class="btn cor-botao">Avaliar</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="card text-center card-largura mt-0 mb-5 cor-fundo-card">
+            <img
+              src="https://media.istockphoto.com/photos/brightly-colored-chairs-next-to-each-other-in-empty-auditorium-picture-id1147602563"
+              class="card-img-top altura-imagem"
+              alt="Imagem do card"
+            />
+            <div class="card-body">
+              <h5 class="card-title">Título do Filme</h5>
+              <p class="card-text">
+                With supporting text below as a natural lead-in to additional
+                content
+              </p>
+              <p class="">
+                <small class="text-muted">Nota do Filme</small>
+              </p>
+              <a href="#" class="btn cor-botao">Avaliar</a>
+            </div>
+          </div>
         </div>
       </div>
-
-      <div class="movie">
-        <img src="https://media.istockphoto.com/photos/brightly-colored-chairs-next-to-each-other-in-empty-auditorium-picture-id1147602563" alt="Image">
-        <div class="movie-info">
-          <h3>Título do Filme</h3>
-          <span class="green">9.8</span>
-        </div>
-        <div class="overview">
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Vel dolores voluptas corrupti inventore saepe! Neque et consequatur exercitationem qui omnis.
-        </div>
-      </div>
-
-    </main>
+    --></div>
 
     <!--Pagination -->
     <div class="pagination">
-        <div class="page" id="prev">Anterior</div>
-        <div class="current" id="current">1</div>
-        <div class="page" id="next">Próximo</div>
+      <div class="page" id="prev">Anterior</div>
+      <div class="current" id="current">1</div>
+      <div class="page" id="next">Próximo</div>
     </div>
 
-    <!-- Bootstrap core JavaScript -->
+    <!-- jQuery first, then Bootstrap JS -->
     <script
-      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
       crossorigin="anonymous"
     ></script>
     <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+      integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
       crossorigin="anonymous"
     ></script>
 
-    <!-- Axios -->
+    <!--Axios CPDN -->
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 
     <!-- JS file -->
     <script src="js/index.js"></script>
+    <script>
+      teste(guest_session);
+    //getMovies(API_URL);</script>
   </body>
 </html>

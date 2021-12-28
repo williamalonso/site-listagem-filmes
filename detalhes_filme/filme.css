@@ -1,0 +1,77 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  --primary-color: #22254b;
+  --secondary-color: #373b69;
+}
+
+body {
+  background-color: var(--primary-color);
+  font-family: "Poppins", sans-serif;
+  margin: 0;
+}
+
+#main {
+  /*background-color: green;*/
+  box-sizing: border-box;
+  justify-content: center;
+  margin-top: 60px!important;
+  max-width: 940px;
+  border: none;
+  box-shadow: 3px 3px 5px black;
+}
+
+/* Navbar */
+.cor-fundo-navbar {
+    background-color: var(--secondary-color) !important;
+  }
+  .cor-fonte-navbar a {
+    color: white !important;
+    font-size: 17px;
+    border-radius: 8px;
+    margin: 0 5px;
+  }
+  .cor-fonte-navbar a:hover {
+    background-color: orange;
+  }
+  .cor-fonte-navbar span {
+    color: orange !important;
+    font-size: 27px;
+  }
+  .cor-botao {
+    color: white !important;
+    border-color: orange !important;
+  }
+  .cor-botao:hover {
+    background-color: orange;
+  }
+  .navbar-toggler .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgb(255,165,0)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+  }
+  .navbar-toggler {
+    border-color: orange !important;
+  }
+  .imagem-navbar {
+    width: 80px;
+  }
+
+/* estrelas */
+.stars a {
+  color: orange !important;
+  cursor: pointer !important;
+  opacity: 50%;
+}
+.stars:hover a {
+  opacity: 1;
+}
+.stars a:hover {
+  opacity: 1;
+}
+.stars a:hover ~ a {
+  opacity: 50%;
+}
