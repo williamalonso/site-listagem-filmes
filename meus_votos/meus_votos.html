@@ -18,7 +18,7 @@
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
 
     <!-- CSS file-->
-    <link rel="stylesheet" type="text/css" href="filme.css" />
+    <link rel="stylesheet" type="text/css" href="meus_votos.css" />
   </head>
 
   <body>
@@ -49,7 +49,7 @@
             >
           </li>
           <li class="nav-item">
-            <a class="nav-link my-2 text-center" id="botao-meus-votos" href="#">Meus Votos</a>
+            <a class="nav-link my-2 text-center" href="#">Meus Votos</a>
           </li>
         </ul>
         <form class="form-inline my-2 my-lg-0">
@@ -67,9 +67,11 @@
       </div>
     </nav>
 
-    <!-- Card com detalhe entra aqui -->
-    <div id="main" class="card m-auto">
-    </div>
+    <!-- Cards entram aqui  -->
+    <div
+      id="main"
+      class="container-fluid d-flex justify-content-center mt-5 mb-1"
+    >
 
     <!-- jQuery first, then Bootstrap JS -->
     <script
@@ -87,7 +89,7 @@
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 
     <!-- JS file -->
-    <script src="filme.js"></script>
-    <script>detalheFilme();</script>
+    <script src="meus_votos.js"></script>
+    <script>getMovies(filmes_votados);</script>
   </body>
 </html>

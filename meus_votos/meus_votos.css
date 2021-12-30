@@ -21,9 +21,6 @@ body {
   box-sizing: border-box;
   justify-content: center;
   margin-top: 60px!important;
-  max-width: 940px;
-  border: none;
-  box-shadow: 3px 3px 5px black;
 }
 
 /* Navbar */
@@ -65,36 +62,64 @@ body {
     width: 80px;
   }
 
-/* estrelas */
-/*.stars a {
-  color: orange !important;
-  cursor: pointer !important;
-  opacity: 50%;
+  /* Card */
+.card-body .card-text {
+  position: absolute;
+  opacity: 0;
+  top: 0px;
+  left: 0px;
+  background-color: rgba(0, 0, 0, 0.8);
+  width: 100%;
+  height: calc(100vh - 507px);
+  box-sizing: border-box;
+  padding-left: 0px;
+  transition: 1s;
+  padding: 10px;
 }
-.stars:hover a {
+.card-body .card-text:hover {
   opacity: 1;
 }
-.stars a:hover {
-  opacity: 1;
-}*/
-/* esse ~ pega todas as estrelas à direita do cursor e deixa com opacidade 50%*/
-/*.stars a:hover ~ a {
-  opacity: 50%;
-}*/
+.card-largura {
+  max-width: 20rem;
+  margin: 20px auto;
+  box-sizing: border-box;
+}
+.altura-imagem {
+  height: 100%;
+}
+.cor-fundo-card {
+  background-color: var(--secondary-color);
+  border: none;
+  color: white;
+  box-shadow: 3px 3px 5px black;
+}
+.cor-botao {
+  background-color: orange !important;
+  box-shadow: 1px 1px 1px black;
+}
 
 @media (max-width: 500px) {
-  #main {
-    margin: 20px 20px 20px 20px !important;
-  }
   .cor-fonte-navbar a {
     border: 1px solid orange;
   }
   .navbar-brand {
     display: none;
   }
-  /*.container-estrela {
-    display: flex;
-    flex-direction: column;
-	  justify-content: center;
-  }*/
+  .altura-imagem {
+    height: 50%;
+  }
+  .card-body .card-text {
+    height: calc(100vh - 380px);
+  }
+}
+@media only screen and (min-width:1281px) and (max-width:1440px){
+  .card-body .card-text {
+    height: calc(100vh - 323px);
+  }
+}
+
+@media only screen and (min-width:1441px) and (max-width:1920px){
+  .card-body .card-text {
+    height: calc(100vh - 488px);
+  }
 }

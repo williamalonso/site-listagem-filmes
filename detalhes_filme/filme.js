@@ -16,19 +16,34 @@ const searchURL = BASE_URL + "/search/movie?" + API_KEY;
 // variável para receber o que for digitado no campo de pesquisa
 const pesquisa = document.getElementById("form");
 
+// variável para receber id do filme
+var filmeID = sessionStorage.getItem('filmeID');
+
 // variável para receber o botão de pesquisa
 const botao = document.getElementById("botao");
 
-// quando clicar no botão de início, redireciona para index.html
-botao_inicio.addEventListener("click", function(e) {
-  e.preventDefault();
-  window.location = '../index.html';
-});
+// variável para receber o botão do menu Meus Votos
+const botao_meus_votos = document.getElementById("botao-meus-votos");
 
-// função que gera o card com detalhes do filme
-function detalheFilme() {
-    
-    var filmeID = sessionStorage.getItem('filmeID');
+// variável para receber o id do visitante
+const guest_session_id = localStorage.getItem('idUsuario');
+//console.log(guest_session_id);
+
+
+  // quando clicar no botão de início, redireciona para index.html
+  botao_inicio.addEventListener("click", function(e) {
+    e.preventDefault();
+    window.location = '../index.html';
+  });
+
+  // quando clicar no botão de Meus Votos, redireciona para meus_votos.html
+  botao_meus_votos.addEventListener("click", function(e) {
+    e.preventDefault();
+    window.location = '../meus_votos/meus_votos.html';
+  });
+
+  // função que gera o card com detalhes do filme
+  function detalheFilme() {
     
     axios.get( BASE_URL + '/movie/' + filmeID + '?' + API_KEY)
     .then(function (response) {
@@ -39,7 +54,7 @@ function detalheFilme() {
       main.innerHTML = "";
 
       const div1 = document.createElement("div");
-      div1.classList.add("row", "container-fluid");
+      div1.classList.add("container-fluid");
 
       const detalheFilme = document.createElement("div");
 
@@ -55,14 +70,22 @@ function detalheFilme() {
                         <p class="card-text">${filme.overview}</p>
                         <p class="card-text"><small class="text-muted">${filme.vote_average}</small></p>
                         <br>
-                        <p class="card-text">Avaliar Filme</p>
-                        <div class="stars">
-                          <a><i class="fas fa-star"></i></a>
-                          <a><i class="fas fa-star"></i></a>
-                          <a><i class="fas fa-star"></i></a>
-                          <a><i class="fas fa-star"></i></a>
-                          <a><i class="fas fa-star"></i></a>
-                        </div>
+                        <form>
+                          <div class="row g-3 align-items-center">
+                            <div class="col-auto">
+                              <label for="inputPassword6" class="col-form-label">Nota</label>
+                            </div>
+                            <div class="col-auto">
+                              <input type="number" id="idNumero" class="form-control" aria-describedby="passwordHelpInline">
+                            </div>
+                            <div class="col-auto">
+                              <span id="passwordHelpInline" class="form-text">
+                                Valores de 0 a 10.
+                              </span>
+                            </div>
+                          </div>
+                          <a type="submit" class="btn btn-primary mt-4 botao-avaliar" onclick="enviaPost()">Avaliar</a>
+                        </form>
                     </div>
                     </div>
                 </div>
@@ -88,4 +111,36 @@ function detalheFilme() {
     else {
       window.location = '../index.html';
     }
+
+    
   });
+
+  /* faz a requsição Post para a api */
+  function enviaPost() {
+    
+    let numero = document.querySelector("#idNumero");
+    let idNumero = numero.value;
+
+    // remove aspas duplas do início e fim do guest_session_id
+    converte_guest_id = guest_session_id.slice(1, -1);
+
+    let url = BASE_URL + "/movie/" + filmeID + "/rating?" + API_KEY + "&guest_session_id=" + converte_guest_id;
+  
+    let data = { "value": idNumero}
+    fetch(url, {
+      method: 'POST',
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data)
+    })
+    .then((response) => response.json())
+    .then((data) => {
+      //console.log("succes:", data)
+      window.location = '../meus_votos/meus_votos.html';
+    })
+    .catch((error) => {
+      console.error("Error: ", error);
+    })
+    
+  }

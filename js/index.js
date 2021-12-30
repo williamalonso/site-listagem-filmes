@@ -28,13 +28,20 @@ const botao_inicio = document.getElementById("botao-inicio");
 // variável para receber uma sessionStorage
 var pesquisaDetalhe = sessionStorage.getItem('searchTerm');
 
+// variável para receber o botão do menu Meus Votos
+const botao_meus_votos = document.getElementById("botao-meus-votos");
 
-/* ===================GUEST SESSION =================*/
+// cria a url do guest_session
+const guest = BASE_URL + "/authentication/guest_session/new?" + API_KEY;
 
-// autentica usuário
-const guest_session = BASE_URL + "/authentication/guest_session/new?api_key=5a54272fe8480c752ded4311b7a123fd";
+// quando clicar no botão de Meus Votos, redireciona para meus_votos.html
+botao_meus_votos.addEventListener("click", function(e) {
+  e.preventDefault();
+  window.location = '../meus_votos/meus_votos.html';
+});
 
-function teste(url) {
+// verifica se tem guest_session. Se tiver, busca o guest, se não, cria um novo
+function guest_session(url) {
   if( localStorage.getItem('idUsuario') ) {
     getMovies(API_URL);
   } else {
@@ -51,9 +58,7 @@ function teste(url) {
   
 }
 
-/* =================================================== */
-
-
+// verifica se tem variável "searchTerm" na sessionStorage (que vem do filme.js). Se tiver, faz a pesquisa desse termo
 if(pesquisaDetalhe) {
   const searchTerm = pesquisaDetalhe;
   //console.log(searchTerm);
@@ -83,6 +88,7 @@ function getMovies(url) {
     });
 }
 
+//função que cria os cards da página index, dinamicamente
 function showMovies(data) {
   main.innerHTML = "";
 
@@ -148,11 +154,13 @@ botao.addEventListener("click", (e) => {
   }
 });
 
+// vamos ficar escutando o evento até clicar no botão de início
 botao_inicio.addEventListener("click", function (e) {
   e.preventDefault();
   getMovies(API_URL);
 });
 
+// função para exibir o filme quando clicar em "avaliar"
 function filmeSelecionado(id) {
   
   //vamos usar sessionStorage para armazenar o id do filme
@@ -160,8 +168,6 @@ function filmeSelecionado(id) {
 
   //redireciona a página
   window.location = 'detalhes_filme/filme.html';
-  
-  //detalheFilme();
   
   return false;
 }
