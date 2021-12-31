@@ -3,7 +3,7 @@
     </h1>
 
 <div align="center">
-  <img src="https://github.com/williamalonso/site-kanban/blob/master/src/image/paginainicial.png" alt"Home Page" title="The Movie App" width="600" />
+  <img src="https://github.com/williamalonso/site-listagem-filmes/blob/master/img/paginainicial.png" alt"Home Page" title="The Movie App" width="600" />
   
 
 ---
