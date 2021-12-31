@@ -40,7 +40,7 @@ botao_inicio.addEventListener("click", function(e) {
   });
 
 
-    // função que recebe os filmes avaliados
+// função que recebe os filmes avaliados
     function getMovies(url) {
         fetch(url)
         .then((res) => res.json())
@@ -59,6 +59,7 @@ botao_inicio.addEventListener("click", function(e) {
             //console.log(filmes);
             // não precisamos passar o objeto inteiro, apenas os filmes em si do objeto, por isso passamos "data.results"
             showMovies(data.results);
+            
         });
     }
 
@@ -148,7 +149,7 @@ botao_inicio.addEventListener("click", function(e) {
         })
         .then((response) => response.json())
         .then((data) => {
-            location.reload();
+            getMovies(filmes_votados);
         })
         .catch((error) => {
             console.error("Error: ", error);

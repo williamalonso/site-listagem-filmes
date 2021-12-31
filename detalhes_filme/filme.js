@@ -76,11 +76,11 @@ const guest_session_id = localStorage.getItem('idUsuario');
                               <label for="inputPassword6" class="col-form-label">Nota</label>
                             </div>
                             <div class="col-auto">
-                              <input type="number" id="idNumero" class="form-control" aria-describedby="passwordHelpInline">
+                              <input type="number" min="0.5" max="10" step="0.5" id="idNumero" class="form-control" aria-describedby="passwordHelpInline">
                             </div>
                             <div class="col-auto">
-                              <span id="passwordHelpInline" class="form-text">
-                                Valores de 0 a 10.
+                              <span id="passwordHelpInline" class="form-text" >
+                                Valores de 0.5 a 10.
                               </span>
                             </div>
                           </div>

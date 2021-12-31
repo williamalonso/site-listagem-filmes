@@ -17,7 +17,6 @@ body {
 }
 
 #main {
-  /*background-color: green;*/
   box-sizing: border-box;
   justify-content: center;
 }
@@ -103,6 +102,10 @@ body {
 .page {
   padding: 20px;
   cursor: pointer;
+}
+.disabled {
+  cursor: not-allowed;
+  color: grey;
 }
 .current {
   border: 5px solid orange;
