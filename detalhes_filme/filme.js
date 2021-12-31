@@ -137,6 +137,7 @@ const guest_session_id = localStorage.getItem('idUsuario');
     .then((response) => response.json())
     .then((data) => {
       //console.log("succes:", data)
+      location.reload();
       window.location = '../meus_votos/meus_votos.html';
     })
     .catch((error) => {

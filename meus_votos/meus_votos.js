@@ -42,10 +42,10 @@ botao_inicio.addEventListener("click", function(e) {
 
     // função que recebe os filmes avaliados
     function getMovies(url) {
-        location.reload();
         fetch(url)
         .then((res) => res.json())
         .then((data) => {
+            
             //console.log(data.results);
             // vamos transformar o objeto em array, ordenar pelo "rating"
             let filmes = [];
@@ -64,6 +64,7 @@ botao_inicio.addEventListener("click", function(e) {
 
     //função que exibe os filmes avaliador dinamicamente
     function showMovies(data) {
+        
         //console.log(data);
         main.innerHTML = "";
     
@@ -153,3 +154,4 @@ botao_inicio.addEventListener("click", function(e) {
             console.error("Error: ", error);
         })
     }
+    
