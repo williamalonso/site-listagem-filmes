@@ -45,16 +45,17 @@ botao_inicio.addEventListener("click", function(e) {
         fetch(url)
         .then((res) => res.json())
         .then((data) => {
-            
+            //console.log(data.results);
             // vamos transformar o objeto em array, ordenar pelo "rating"
             let filmes = [];
             filmes.push(data.results);
+            //console.log(filmes);
             filmes[0].sort(ordenarPorVoto);
             function ordenarPorVoto(a, b) {
             // se o valor for menor que 0, então o primeiro elemento é menor que o próximo
             return b.rating - a.rating;
             }
-    
+            //console.log(filmes);
             // não precisamos passar o objeto inteiro, apenas os filmes em si do objeto, por isso passamos "data.results"
             showMovies(data.results);
         });
@@ -62,7 +63,7 @@ botao_inicio.addEventListener("click", function(e) {
 
     //função que exibe os filmes avaliador dinamicamente
     function showMovies(data) {
-        console.log(data);
+        //console.log(data);
         main.innerHTML = "";
     
         // criando as divs dinamicamente
