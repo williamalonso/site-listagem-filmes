@@ -42,6 +42,7 @@ botao_inicio.addEventListener("click", function(e) {
 
     // função que recebe os filmes avaliados
     function getMovies(url) {
+        location.reload();
         fetch(url)
         .then((res) => res.json())
         .then((data) => {
