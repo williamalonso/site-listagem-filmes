@@ -33,9 +33,10 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
 
 - A página inicial lista os filmes em cartaz mundial por ordem decrescente de votos;
 - Cada card mostra uma imagem, título e sinopse, em português;
-- O usuário visitante pode avaliar um filme;
+- O usuário visitante pode avaliar e remover um filme;
 - Os filmes avaliados pelo visitante ficam no menu "meus votos";
 - Na página inicial há paginação;
+- Ao passar o mouse pela imagem é exibida a sinopse;
 - É possível pesquisar filmes específicos no campo de busca;
 
 ---
